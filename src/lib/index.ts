@@ -1,2 +1,3 @@
 // Silence is golden 🤫
-export default {};
+
+export * from "./translation";
