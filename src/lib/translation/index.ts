@@ -1,3 +1,4 @@
 import Translator from "./Translator";
+import TranslatorConfig from "./TranslatorConfig";
 
-export { Translator };
+export { Translator, TranslatorConfig };

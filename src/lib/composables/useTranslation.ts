@@ -1,11 +1,10 @@
-import { UnwrapNestedRefs, getCurrentInstance } from "vue";
+import { UnwrapNestedRefs } from "vue";
 import { Translator } from "../translation";
+import useTranslationConfig from "./useTranslationConfig";
 
 const useTranslation = () => {
-  const instance = getCurrentInstance();
-
-  return instance?.appContext.config.globalProperties
-    .$trustupT as UnwrapNestedRefs<Translator>;
+  const config = useTranslationConfig();
+  return config.translator as UnwrapNestedRefs<Translator>;
 };
 
 export default useTranslation;

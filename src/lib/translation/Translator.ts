@@ -1,15 +1,15 @@
 import { createI18n } from "vue-i18n";
 import { Translation } from "../api/endpoints";
 import { Messages, TranslationOptions } from "../types";
+import { Loader } from "@henrotaym/helpers";
 
 class Translator {
-  private _isLoading: boolean;
+  private _loader;
   private _endpoint;
   private _appName: string;
   private _i18n;
 
   constructor(options: TranslationOptions) {
-    this._isLoading = true;
     this._endpoint = new Translation();
     this._appName = options.appName;
     this._i18n = createI18n({
@@ -17,14 +17,16 @@ class Translator {
       fallbackLocale: "fr",
       messages: { fr: {}, en: {}, de: {}, nl: {} },
     });
-  }
-
-  public get isLoading() {
-    return this._isLoading;
+    this._loader = new Loader(true);
+    this._loader.loadTill(() => this.init());
   }
 
   public get i18n() {
     return this._i18n;
+  }
+
+  public get loader() {
+    return this._loader;
   }
 
   private async setMessages() {
@@ -37,9 +39,7 @@ class Translator {
   }
 
   public async init() {
-    this._isLoading = true;
     await this.setMessages();
-    this._isLoading = false;
   }
 }
 export default Translator;
