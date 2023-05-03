@@ -1,25 +1,26 @@
 import { createI18n } from "vue-i18n";
 import { Translation } from "../api/endpoints";
+import { TranslationOptions } from "../types";
 
 class Translator {
   private _isLoading: boolean;
   private _endpoint;
-  private _messages?: any;
   private _appName: string;
-  private _i18n: any;
+  private _i18n;
 
-  constructor(appName: string) {
+  constructor(options: TranslationOptions) {
     this._isLoading = true;
     this._endpoint = new Translation();
-    this._appName = appName;
+    this._appName = options.appName;
+    this._i18n = createI18n({
+      locale: "fr",
+      fallbackLocale: "fr",
+      messages: { fr: {}, en: {}, de: {}, nl: {} },
+    });
   }
 
   public get isLoading() {
     return this._isLoading;
-  }
-
-  public get messages() {
-    return this._messages;
   }
 
   public get i18n() {
@@ -27,17 +28,17 @@ class Translator {
   }
 
   private async setMessages() {
-    this._messages = await this._endpoint.index(this._appName);
-    this._isLoading = false;
+    const messages = await this._endpoint.index(this._appName);
+    const locales = Object.keys(messages);
+    locales.forEach((locale) =>
+      this._i18n.global.setLocaleMessage(locale, messages[locale])
+    );
   }
 
-  public async check() {
+  public async init() {
+    this._isLoading = true;
     await this.setMessages();
-    this._i18n = createI18n({
-      locale: "fr",
-      fallbackLocale: "fr",
-      messages: this._messages,
-    });
+    this._isLoading = false;
   }
 }
 export default Translator;

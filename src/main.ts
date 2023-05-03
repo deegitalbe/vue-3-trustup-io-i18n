@@ -1,11 +1,10 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import "./main.css";
-// import translationPlugin from "./lib/plugins/translationPlugin";
-import { Translator } from "./lib";
+import { translationPlugin } from "./lib/plugins";
 
-const translator = new Translator(import.meta.env.VITE_APP_NAME);
+const app = createApp(App);
 
-await translator.check();
+app.use(translationPlugin, { appName: import.meta.env.VITE_APP_NAME });
 
-createApp(App).use(translator.i18n).mount("#app");
+app.mount("#app");

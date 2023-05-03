@@ -19,6 +19,7 @@
           <div class="text-2xl text-gray-600 font-thin">
             {{ $t("apps.worksite") }}
           </div>
+          <div>{{ $trustupT.isLoading }}</div>
         </div>
       </div>
     </Transition>
