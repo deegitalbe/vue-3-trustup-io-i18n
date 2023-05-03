@@ -1,6 +1,6 @@
 import { createI18n } from "vue-i18n";
 import { Translation } from "../api/endpoints";
-import { TranslationOptions } from "../types";
+import { Messages, TranslationOptions } from "../types";
 
 class Translator {
   private _isLoading: boolean;
@@ -28,7 +28,7 @@ class Translator {
   }
 
   private async setMessages() {
-    const messages = await this._endpoint.index(this._appName);
+    const messages: Messages = await this._endpoint.index(this._appName);
     const locales = Object.keys(messages);
     locales.forEach((locale) =>
       this._i18n.global.setLocaleMessage(locale, messages[locale])

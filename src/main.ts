@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import "./main.css";
-import { translationPlugin } from "./lib/plugins";
+import { translationPlugin } from "./lib";
 
 const app = createApp(App);
 

@@ -20,6 +20,8 @@
             {{ $t("apps.worksite") }}
           </div>
           <div>{{ $trustupT.isLoading }}</div>
+          <div>{{ translation.isLoading }}</div>
+          <div>{{ $t("apps.accountant", { name: "George" }) }}</div>
         </div>
       </div>
     </Transition>
@@ -27,5 +29,8 @@
 </template>
 
 <script setup lang="ts">
+import { useTranslation } from "./lib";
 // Import your library here.
+
+const translation = useTranslation();
 </script>

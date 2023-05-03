@@ -106,7 +106,7 @@ class Translation {
               ],
             },
           },
-          accountant: "Comptable",
+          accountant: "Comptable {name}",
         },
         auth: {
           failed:
