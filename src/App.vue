@@ -17,7 +17,7 @@
         <div>
           <div class="text-[300px]">🎉</div>
           <div class="text-2xl text-gray-600 font-thin">
-            {{ $t("apps.worksite") }}
+            {{ $t("apps.worksite") }} {{ $t("auth.failed") }}
           </div>
         </div>
       </div>
