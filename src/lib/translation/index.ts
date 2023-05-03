@@ -1,3 +1,3 @@
-import i18n from "./i18n";
+import Translator from "./Translator";
 
-export { i18n };
+export { Translator };

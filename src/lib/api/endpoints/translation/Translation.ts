@@ -7,7 +7,7 @@ class Translation {
   constructor() {
     this.client = new Client().setCredential(new TranslationCredential());
   }
-
+  //TODO appname in params
   public async index() {
     // const request = new Request()
     //   .setVerb("GET")
