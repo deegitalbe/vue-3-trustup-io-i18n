@@ -8,10 +8,7 @@ class Credential extends JsonCredential {
 
   prepare(request: Request<any>): void {
     super.prepare(request);
-    request.setBaseUrl("https://translations.trustup.io").addHeaders({
-      "X-Server-Authorization":
-        "MIICXQIBAAKBgQChrymGMQpdxskFgRKrehCP2C47ZcTUFY4vHLPMVnDFnKcuMKjGN5tw37ehjPSZAW7T3OfUEGRUlfDPR2XBsmzNeXDAQAB",
-    });
+    request.setBaseUrl("https://translations.trustup.io");
   }
 }
 

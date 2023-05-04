@@ -19,7 +19,10 @@
           <div class="text-2xl text-gray-600 font-thin">
             {{ $t("apps.worksite") }}
           </div>
-          <div>{{ $trustupT.loader.isLoading }}</div>
+          <div>
+            {{ $translator.loader.isLoading }}
+            {{ $translator.t("apps.accountant", { name: "George" }) }}
+          </div>
 
           <div>{{ translation.loader.isLoading }}</div>
           <div>{{ $t("apps.accountant", { name: "George" }) }}</div>

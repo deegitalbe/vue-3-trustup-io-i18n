@@ -8,14 +8,14 @@ const translationPlugin: Plugin = {
     config.create(options);
     const translator = useTranslation();
     translator.init();
-    app.config.globalProperties.$trustupT = translator;
+    app.config.globalProperties.$translator = translator;
     app.use(translator.i18n);
   },
 };
 
 declare module "vue" {
   interface ComponentCustomProperties {
-    $trustupT: UnwrapNestedRefs<Translator>;
+    $translator: UnwrapNestedRefs<Translator>;
   }
 }
 
