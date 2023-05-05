@@ -18,7 +18,6 @@ class Translator {
       messages: { fr: {}, en: {}, de: {}, nl: {} },
     });
     this._loader = new Loader(true);
-    this._loader.loadTill(() => this.init());
   }
 
   public get i18n() {
@@ -34,7 +33,6 @@ class Translator {
   }
 
   private async setMessages() {
-    //TODO add this._appName in index params
     const messages: Messages = await this._endpoint.index(this._appName);
     const locales = Object.keys(messages);
     locales.forEach((locale) =>
@@ -43,7 +41,7 @@ class Translator {
   }
 
   public async init() {
-    await this.setMessages();
+    return this._loader.loadTill(() => this.setMessages());
   }
 }
 export default Translator;
