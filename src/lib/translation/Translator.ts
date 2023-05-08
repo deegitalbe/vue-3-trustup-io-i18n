@@ -32,6 +32,10 @@ class Translator {
     return this._i18n.global.t;
   }
 
+  public setNewLocale(locale: any) {
+    this._i18n.global.locale = locale;
+  }
+
   private async setMessages() {
     const messages: Messages = await this._endpoint.index(this._appName);
     const locales = Object.keys(messages);
