@@ -38,6 +38,7 @@ class Translator {
 
   private async setMessages() {
     const messages: Messages = await this._endpoint.index(this._appName);
+    if (!messages) return;
     const locales = Object.keys(messages);
     locales.forEach((locale) =>
       this._i18n.global.setLocaleMessage(locale, messages[locale])
