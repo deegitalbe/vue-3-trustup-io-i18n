@@ -26,6 +26,8 @@
 
           <div>{{ translation.loader.isLoading }}</div>
           <div>{{ $t("apps.accountant", { name: "George" }) }}</div>
+          <div>{{ translation.getCurrentLocale() }}</div>
+          <div>{{ translation.getAvailableLocales() }}</div>
         </div>
       </div>
     </Transition>

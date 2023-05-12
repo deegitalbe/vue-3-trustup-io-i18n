@@ -32,7 +32,15 @@ class Translator {
     return this._i18n.global.t;
   }
 
-  public setNewLocale(locale: any) {
+  public getCurrentLocale() {
+    return this._i18n.global.locale;
+  }
+
+  public getAvailableLocales() {
+    return this._i18n.global.availableLocales;
+  }
+
+  public setCurrentLocale(locale: any) {
     this._i18n.global.locale = locale;
   }
 
