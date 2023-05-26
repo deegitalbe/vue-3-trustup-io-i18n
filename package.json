@@ -1,5 +1,5 @@
 {
-  "name": "@deegital/vue-3-trustup-io-i18n",
+  "name": "@deegital/vue-3-trustup-io-translations",
   "description": "Vue package that use i18n to translate on our app",
   "private": false,
   "license": "MIT",
