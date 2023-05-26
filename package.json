@@ -1,7 +1,7 @@
 {
   "name": "@deegital/vue-3-trustup-io-translations",
   "description": "Vue package that use i18n to translate on our app",
-  "version": "0.0.2",
+  "version": "0.0.11",
   "type": "module",
   "files": [
     "dist"
