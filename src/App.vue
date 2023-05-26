@@ -28,6 +28,7 @@
           <div>{{ $t("apps.accountant", { name: "George" }) }}</div>
           <div>{{ translation.getCurrentLocale() }}</div>
           <div>{{ translation.getAvailableLocales() }}</div>
+          <div>{{ $t("app.actions.create") }}</div>
         </div>
       </div>
     </Transition>
@@ -39,4 +40,7 @@ import { useTranslation } from "./lib";
 // Import your library here.
 
 const translation = useTranslation();
+console.log(translation.i18n.global.messages);
+
+useTranslation().addTranslationsByKey("worksite-admin");
 </script>

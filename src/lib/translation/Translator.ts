@@ -44,6 +44,15 @@ class Translator {
     this._i18n.global.locale = locale;
   }
 
+  public async addTranslationsByKey(appKey: string) {
+    const messages: Messages = await this._endpoint.index(appKey);
+    if (!messages) return;
+    const locales = Object.keys(messages);
+    locales.forEach((locale) =>
+      this._i18n.global.mergeLocaleMessage(locale, messages[locale])
+    );
+  }
+
   private async setMessages() {
     const messages: Messages = await this._endpoint.index(this._appName);
     if (!messages) return;
