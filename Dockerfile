@@ -28,4 +28,4 @@ WORKDIR /app
 
 COPY --chown=node:node --from=builder /app ./
 
-CMD yarn install && yarn dev
+CMD yarn dev

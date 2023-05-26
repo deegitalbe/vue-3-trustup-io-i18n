@@ -2,5 +2,5 @@
 
 cd ../ && \
   ./cli yarn build && \
-  npm version $1 && \
+  npm publish --access public && \
 cd scripts
