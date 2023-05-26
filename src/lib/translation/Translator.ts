@@ -49,7 +49,9 @@ class Translator {
     if (!messages) return;
     const locales = Object.keys(messages);
     locales.forEach((locale) =>
-      this._i18n.global.mergeLocaleMessage(locale, messages[locale])
+      this._i18n.global.mergeLocaleMessage(locale, {
+        [appKey]: messages[locale],
+      })
     );
   }
 

@@ -4,7 +4,7 @@
 
 ```bash
 
-    yarn add @deegital/vue-3-trustup-io-i18n
+    yarn add @deegital/vue-3-trustup-io-translations
 
 ```
 
@@ -31,7 +31,7 @@ It will return "Chantier"
 # You can use the composable and the plugin
 
 ```html
-<div>{{ $trustupT.isLoading }}</div>
+<div>{{ $translator }}</div>
 ```
 
 OR
@@ -40,6 +40,13 @@ OR
 import { useTranslation } from "./lib";
 
 const translation = useTranslation();
+useTranslate("key");
+```
+
+# You can add translation from another app
+
+```javascript
+useTranslation().addTranslationsByKey("worksite-admin");
 ```
 
 ---

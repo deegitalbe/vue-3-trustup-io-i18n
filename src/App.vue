@@ -28,7 +28,7 @@
           <div>{{ $t("apps.accountant", { name: "George" }) }}</div>
           <div>{{ translation.getCurrentLocale() }}</div>
           <div>{{ translation.getAvailableLocales() }}</div>
-          <div>{{ $t("app.actions.create") }}</div>
+          <div>{{ $t("worksite-admin.app.actions.create") }}</div>
         </div>
       </div>
     </Transition>
