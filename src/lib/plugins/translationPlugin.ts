@@ -1,22 +1,32 @@
-import { Plugin, UnwrapNestedRefs } from "vue";
-import { Translator } from "../translation";
-import { useTranslation, useTranslationConfig } from "../composables";
+import { Plugin } from "vue";
+import { ReactiveTranslator, TranslationOptions } from "../types";
+import { I18nFactory, ReactiveTranslatorFactory } from "../factories";
 
-const translationPlugin: Plugin = {
-  install: (app, options) => {
-    const config = useTranslationConfig();
-    config.create(options);
-    const translator = useTranslation();
-    translator.init();
-    app.config.globalProperties.$translator = translator;
-    app.use(translator.i18n);
-  },
-};
+declare global {
+  interface Window {
+    translationPlugin: {
+      translator: ReactiveTranslator;
+    };
+  }
+}
 
 declare module "vue" {
   interface ComponentCustomProperties {
-    $translator: UnwrapNestedRefs<Translator>;
+    $translator: ReactiveTranslator;
   }
 }
+
+const translationPlugin: Plugin<TranslationOptions> = {
+  install: (app, options) => {
+    const i18nFactory = new I18nFactory();
+    const translatorFactory = new ReactiveTranslatorFactory();
+    const i18n = i18nFactory.create();
+    app.use(i18n);
+    const translator = translatorFactory.create({ ...options, i18n });
+    window.translationPlugin = { translator: translator };
+    app.config.globalProperties.$translator = translator;
+    translator.init();
+  },
+};
 
 export default translationPlugin;

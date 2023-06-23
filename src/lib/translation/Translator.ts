@@ -1,6 +1,5 @@
-import { createI18n } from "vue-i18n";
 import { Translation } from "../api/endpoints";
-import { Messages, TranslationOptions } from "../types";
+import { AvailableLocale, Messages, TranslationConstructor } from "../types";
 import { Loader } from "@henrotaym/helpers";
 
 class Translator {
@@ -9,15 +8,11 @@ class Translator {
   private _appName: string;
   private _i18n;
 
-  constructor(options: TranslationOptions) {
+  constructor({ i18n, appName }: TranslationConstructor) {
     this._endpoint = new Translation();
-    this._appName = options.appName;
-    this._i18n = createI18n({
-      locale: "fr",
-      fallbackLocale: "fr",
-      messages: { fr: {}, en: {}, de: {}, nl: {} },
-    });
     this._loader = new Loader(true);
+    this._appName = appName;
+    this._i18n = i18n;
   }
 
   public get i18n() {
@@ -40,7 +35,7 @@ class Translator {
     return this._i18n.global.availableLocales;
   }
 
-  public setCurrentLocale(locale: any) {
+  public setCurrentLocale(locale: AvailableLocale) {
     this._i18n.global.locale = locale;
   }
 
