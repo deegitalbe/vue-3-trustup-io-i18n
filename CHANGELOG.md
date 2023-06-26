@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.15
+
+### Patch Changes
+
+- 673abb8: Adding availableLocales and currentLocale
+
 ## 0.0.14
 
 ### Patch Changes
