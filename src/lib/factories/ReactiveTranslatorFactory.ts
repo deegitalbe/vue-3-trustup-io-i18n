@@ -1,4 +1,4 @@
-import { reactive } from "vue";
+import { computed, reactive } from "vue";
 import { TranslationConstructor } from "../types";
 import TranslatorFactory from "./TranslatorFactory";
 import ReactiveLoaderFactory from "./ReactiveLoaderFactory";
@@ -19,7 +19,9 @@ class ReactiveTranslatorFactory {
       isLoading: loader.isLoading,
       t: translator.t.bind(translator),
       getCurrentLocale: translator.getCurrentLocale.bind(translator),
+      currentLocale: computed(() => translator.currentLocale),
       getAvailableLocales: translator.getAvailableLocales.bind(translator),
+      availableLocales: computed(() => translator.availableLocales),
       setCurrentLocale: translator.setCurrentLocale.bind(translator),
       addTranslationsByKey: translator.addTranslationsByKey.bind(translator),
       init: translator.init.bind(translator),

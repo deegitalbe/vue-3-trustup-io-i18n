@@ -27,12 +27,20 @@ class Translator {
     return this._i18n.global.t;
   }
 
-  public getCurrentLocale() {
+  public get currentLocale() {
     return this._i18n.global.locale;
   }
 
-  public getAvailableLocales() {
+  public getCurrentLocale() {
+    return this.currentLocale;
+  }
+
+  public get availableLocales() {
     return this._i18n.global.availableLocales;
+  }
+
+  public getAvailableLocales() {
+    return this.availableLocales;
   }
 
   public setCurrentLocale(locale: AvailableLocale) {

@@ -26,8 +26,10 @@
 
           <div>{{ loader.isLoading }}</div>
           <div>{{ $t("apps.accountant", { name: "George" }) }}</div>
-          <div>{{ getCurrentLocale() }}</div>
-          <div>{{ getAvailableLocales() }}</div>
+          <!-- <div>{{ getCurrentLocale() }}</div> -->
+          <div>{{ currentLocale }}</div>
+          <!-- <div>{{ getAvailableLocales() }}</div> -->
+          <div>{{ availableLocales }}</div>
           <div>{{ t("worksite-admin.app.actions.create") }}</div>
         </div>
       </div>
@@ -36,16 +38,21 @@
 </template>
 
 <script setup lang="ts">
-import { useTranslation } from "./lib";
+import { AVAILABLE_LOCALE, useTranslation } from "./lib";
 
 const {
   addTranslationsByKey,
   loader,
   isLoading,
-  getAvailableLocales,
-  getCurrentLocale,
+  // getAvailableLocales,
+  // getCurrentLocale,
+  currentLocale,
+  availableLocales,
+  setCurrentLocale,
   t,
 } = useTranslation();
 
 addTranslationsByKey("worksite-admin");
+
+setTimeout(() => setCurrentLocale(AVAILABLE_LOCALE.DUTCH), 3000);
 </script>
