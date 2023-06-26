@@ -20,15 +20,15 @@
             {{ $t("apps.worksite") }}
           </div>
           <div>
-            {{ $translator.loader.isLoading }}
-            {{ $translator.t("apps.accountant", { name: "George" }) }}
+            {{ isLoading }}
+            {{ t("apps.accountant", { name: "George" }) }}
           </div>
 
-          <div>{{ translation.loader.isLoading }}</div>
+          <div>{{ loader.isLoading }}</div>
           <div>{{ $t("apps.accountant", { name: "George" }) }}</div>
-          <div>{{ translation.getCurrentLocale() }}</div>
-          <div>{{ translation.getAvailableLocales() }}</div>
-          <div>{{ $t("worksite-admin.app.actions.create") }}</div>
+          <div>{{ getCurrentLocale() }}</div>
+          <div>{{ getAvailableLocales() }}</div>
+          <div>{{ t("worksite-admin.app.actions.create") }}</div>
         </div>
       </div>
     </Transition>
@@ -37,10 +37,15 @@
 
 <script setup lang="ts">
 import { useTranslation } from "./lib";
-// Import your library here.
 
-const translation = useTranslation();
-console.log(translation.i18n.global.messages);
+const {
+  addTranslationsByKey,
+  loader,
+  isLoading,
+  getAvailableLocales,
+  getCurrentLocale,
+  t,
+} = useTranslation();
 
-useTranslation().addTranslationsByKey("worksite-admin");
+addTranslationsByKey("worksite-admin");
 </script>
