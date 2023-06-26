@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.14
+
+### Patch Changes
+
+- 108365b: Refactoring to global instance
+
 ## 0.0.13
 
 ### Patch Changes
