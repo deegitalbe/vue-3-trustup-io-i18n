@@ -16,10 +16,14 @@ export interface Messages {
 type Value<TEnum> = TEnum[keyof TEnum];
 
 export const AVAILABLE_LOCALE = {
-  FRENCH: "fr",
-  ENGLISH: "en",
-  DUTCH: "nl",
-  GERMAN: "de",
+  BE_FRENCH: "be-fr",
+  BE_ENGLISH: "be-en",
+  BE_DUTCH: "be-nl",
+  BE_GERMAN: "be-de",
+  FR_FRENCH: "fr-fr",
+  FR_ENGLISH: "fr-en",
+  NL_DUTCH: "nl-nl",
+  NL_ENGLISH: "nl-en",
 } as const;
 
 export type AvailableLocale = Value<typeof AVAILABLE_LOCALE>;

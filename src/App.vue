@@ -54,5 +54,5 @@ const {
 
 addTranslationsByKey("worksite-admin");
 
-setTimeout(() => setCurrentLocale(AVAILABLE_LOCALE.DUTCH), 3000);
+setTimeout(() => setCurrentLocale(AVAILABLE_LOCALE.BE_DUTCH), 3000);
 </script>
