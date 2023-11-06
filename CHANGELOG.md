@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.16
+
+### Patch Changes
+
+- bd17285: New language
+
 ## 0.0.15
 
 ### Patch Changes
