@@ -26,6 +26,16 @@ export const AVAILABLE_LOCALE = {
   NL_ENGLISH: "nl-en",
 } as const;
 
+export interface LocaleI {
+  id: string;
+  locale: AvailableLocale;
+  country: string;
+  country_name: string;
+  language: string;
+  language_name: string;
+  flag: string;
+}
+
 export type AvailableLocale = Value<typeof AVAILABLE_LOCALE>;
 
 export type ReactiveTranslator = ReturnType<

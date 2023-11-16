@@ -1,15 +1,23 @@
-import { Translation } from "../api/endpoints";
-import { AvailableLocale, Messages, TranslationConstructor } from "../types";
+import { Locales, Translation } from "../api/endpoints";
+import {
+  AvailableLocale,
+  LocaleI,
+  Messages,
+  TranslationConstructor,
+} from "../types";
 import { Loader } from "@henrotaym/helpers";
 
 class Translator {
   private _loader;
   private _endpoint;
+  private _localeEndpoint;
   private _appName: string;
   private _i18n;
+  private _availableLocales: LocaleI[] = [];
 
   constructor({ i18n, appName }: TranslationConstructor) {
     this._endpoint = new Translation();
+    this._localeEndpoint = new Locales();
     this._loader = new Loader(true);
     this._appName = appName;
     this._i18n = i18n;
@@ -35,14 +43,41 @@ class Translator {
     return this.currentLocale;
   }
 
+  public async setAvailableLocales() {
+    const locales = await this._localeEndpoint.index();
+    if (!locales) return;
+
+    this._availableLocales = locales;
+  }
+
   public get availableLocales() {
-    return this._i18n.global.availableLocales;
+    return this._availableLocales;
   }
 
   public getAvailableLocales() {
     return this.availableLocales;
   }
 
+  public get groupedLocales() {
+    return this.getGroupedByCountryLocales();
+  }
+
+  public getGroupedByCountryLocales() {
+    const locales = this.availableLocales;
+
+    const grouped: Record<string, LocaleI[]> = {};
+    for (const locale of locales) {
+      const country = locale.country;
+
+      if (!grouped[country]) {
+        grouped[country] = [];
+      }
+
+      grouped[country].push(locale);
+    }
+
+    return grouped;
+  }
   public setCurrentLocale(locale: AvailableLocale) {
     this._i18n.global.locale = locale;
   }
@@ -68,6 +103,7 @@ class Translator {
   }
 
   public async init() {
+    await this.setAvailableLocales();
     return this._loader.loadTill(() => this.setMessages());
   }
 }

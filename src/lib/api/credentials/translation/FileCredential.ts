@@ -1,15 +1,17 @@
-import { JsonCredential, Request } from "@henrotaym/api-client";
+import {
+  Request,
+  Credential as PackageCredential,
+} from "@henrotaym/api-client";
 
-class Credential extends JsonCredential {
+class FileCredential extends PackageCredential {
   /**
    * Preparing given request.
    * @param {import('@henrotaym/api-client').Request} request
    */
 
   prepare(request: Request): void {
-    super.prepare(request);
     request.setBaseUrl("https://translations.trustup.io");
   }
 }
 
-export default Credential;
+export default FileCredential;

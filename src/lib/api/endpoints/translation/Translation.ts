@@ -1,11 +1,11 @@
 import { Client, Request } from "@henrotaym/api-client";
-import { TranslationCredential } from "../../credentials";
+import { TranslationFileCredential } from "../../credentials";
 
 class Translation {
   private client: Client;
 
   constructor() {
-    this.client = new Client().setCredential(new TranslationCredential());
+    this.client = new Client().setCredential(new TranslationFileCredential());
   }
 
   public async index(appName: string) {

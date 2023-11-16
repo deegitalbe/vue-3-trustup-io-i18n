@@ -30,6 +30,7 @@
           <div>{{ currentLocale }}</div>
           <!-- <div>{{ getAvailableLocales() }}</div> -->
           <div>{{ availableLocales }}</div>
+          <div>{{ groupedLocales }}</div>
           <div>{{ t("worksite-admin.app.actions.create") }}</div>
         </div>
       </div>
@@ -46,6 +47,7 @@ const {
   isLoading,
   // getAvailableLocales,
   // getCurrentLocale,
+  groupedLocales,
   currentLocale,
   availableLocales,
   setCurrentLocale,

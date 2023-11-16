@@ -22,6 +22,7 @@ class ReactiveTranslatorFactory {
       currentLocale: computed(() => translator.currentLocale),
       getAvailableLocales: translator.getAvailableLocales.bind(translator),
       availableLocales: computed(() => translator.availableLocales),
+      groupedLocales: computed(() => translator.groupedLocales),
       setCurrentLocale: translator.setCurrentLocale.bind(translator),
       addTranslationsByKey: translator.addTranslationsByKey.bind(translator),
       init: translator.init.bind(translator),
