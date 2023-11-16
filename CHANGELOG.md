@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.17
+
+### Patch Changes
+
+- 57935d4: groupedLocales available
+
 ## 0.0.16
 
 ### Patch Changes
