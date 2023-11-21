@@ -26,6 +26,7 @@ class ReactiveTranslatorFactory {
       setCurrentLocale: translator.setCurrentLocale.bind(translator),
       addTranslationsByKey: translator.addTranslationsByKey.bind(translator),
       init: translator.init.bind(translator),
+      toggleShowKey: translator.toggleShowKey.bind(translator),
     };
   }
 }

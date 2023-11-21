@@ -93,6 +93,19 @@ class Translator {
     );
   }
 
+  public async toggleShowKey() {
+    const messagesFr = Object.keys(this._i18n.global.getLocaleMessage("be-fr"));
+
+    if (messagesFr.length === 0) {
+      return await this.setMessages();
+    }
+
+    const messages: Messages = await this._endpoint.index(this._appName);
+    if (!messages) return;
+    const locales = Object.keys(messages);
+    locales.forEach((locale) => this._i18n.global.setLocaleMessage(locale, {}));
+  }
+
   private async setMessages() {
     const messages: Messages = await this._endpoint.index(this._appName);
     if (!messages) return;

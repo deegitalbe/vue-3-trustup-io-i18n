@@ -16,6 +16,12 @@
       >
         <div>
           <div class="text-[300px]">🎉</div>
+          <button
+            class="bg-blue-500 px-3 py-1 rounded-lg"
+            @click="toggleShowKey"
+          >
+            Click to show key
+          </button>
           <div class="text-2xl text-gray-600 font-thin">
             {{ $t("apps.worksite") }}
           </div>
@@ -47,6 +53,7 @@ const {
   isLoading,
   // getAvailableLocales,
   // getCurrentLocale,
+  toggleShowKey,
   groupedLocales,
   currentLocale,
   availableLocales,
