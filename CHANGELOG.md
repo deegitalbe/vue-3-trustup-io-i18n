@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.18
+
+### Patch Changes
+
+- b7fe1e0: Toggle show key
+
 ## 0.0.17
 
 ### Patch Changes
