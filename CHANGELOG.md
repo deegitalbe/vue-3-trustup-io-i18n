@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.19
+
+### Patch Changes
+
+- ba6ddbc: Add translation save
+
 ## 0.0.18
 
 ### Patch Changes
