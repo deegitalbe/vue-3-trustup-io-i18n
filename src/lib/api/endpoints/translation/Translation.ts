@@ -41,6 +41,7 @@ class Translation {
       // Retournez le contenu JSON
       return JSON.parse(data);
     } catch (error) {
+      console.error(error);
       // En cas d'erreur, rejetez la promesse avec l'erreur
       throw new Error('Erreur lors de la lecture du fichier JSON : ');
     }
