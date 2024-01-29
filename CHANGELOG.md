@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.20
+
+### Patch Changes
+
+- 359d10b: fix ci
+
 ## 0.0.19
 
 ### Patch Changes
