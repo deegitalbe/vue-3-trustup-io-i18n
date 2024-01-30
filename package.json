@@ -23,7 +23,7 @@
     "access": "public"
   },
   "bin": {
-    "translationsave": "./bin/translationSave.js"
+    "translationsave": "./bin/translationSave.cjs"
   },
   "repository": {
     "type": "git",
