@@ -1,7 +1,6 @@
 import { Client, Request } from "@henrotaym/api-client";
 import { TranslationFileCredential } from "../../credentials";
 
-
 class Translation {
   private client: Client;
 
@@ -31,18 +30,18 @@ class Translation {
   private async readJsonFile(appName: string) {
     let jsonData = null;
     await fetch(`/${appName}.json`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Erreur HTTP! Statut: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      jsonData = data
-    })
-    .catch((error) => {
-      console.error("Erreur lors de la récupération du fichier JSON:", error);
-    });
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Erreur HTTP! Statut: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        jsonData = data;
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la récupération du fichier JSON:", error);
+      });
 
     return jsonData;
   }
