@@ -49,6 +49,14 @@ useTranslate("key");
 useTranslation().addTranslationsByKey("worksite-admin");
 ```
 
+# You can add this script in your package.json to generate a translation file backup
+
+```javascript
+"scripts": {
+    "generate": "node ./node_modules/@deegital/vue-3-trustup-io-translations/bin/translationSave.cjs && nuxt generate",
+  },
+```
+
 ---
 
 ## Development
