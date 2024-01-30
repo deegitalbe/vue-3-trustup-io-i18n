@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.23
+
+### Patch Changes
+
+- e10ca51: wrong path
+
 ## 0.0.22
 
 ### Patch Changes
