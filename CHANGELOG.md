@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.21
+
+### Patch Changes
+
+- a2cf4f2: translation save bin
+
 ## 0.0.20
 
 ### Patch Changes
