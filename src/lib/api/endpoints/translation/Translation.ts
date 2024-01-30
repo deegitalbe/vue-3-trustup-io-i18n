@@ -1,8 +1,6 @@
 import { Client, Request } from "@henrotaym/api-client";
 import { TranslationFileCredential } from "../../credentials";
 
-const fs = require("fs").promises;
-const path = require("path");
 
 class Translation {
   private client: Client;
@@ -31,19 +29,22 @@ class Translation {
   }
 
   private async readJsonFile(appName: string) {
-    try {
-      // Spécifiez le chemin vers votre fichier JSON à partir de la racine du projet
-      const filePath = path.join(process.cwd(), "public", `${appName}.json`);
+    let jsonData = null;
+    await fetch(`/${appName}.json`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erreur HTTP! Statut: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      jsonData = data
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la récupération du fichier JSON:", error);
+    });
 
-      // Lisez le fichier JSON de manière asynchrone
-      const data = await fs.readFile(filePath, "utf-8");
-
-      // Retournez le contenu JSON
-      return JSON.parse(data);
-    } catch (error) {
-      // En cas d'erreur, rejetez la promesse avec l'erreur
-      throw new Error("Erreur lors de la lecture du fichier JSON : ");
-    }
+    return jsonData;
   }
 }
 export default Translation;
