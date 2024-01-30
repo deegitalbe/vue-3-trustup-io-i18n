@@ -22,6 +22,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "bin": {
+    "translationsave": "./bin/translationSave.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/deegital/vue-3-trustup-io-translations.git"
