@@ -53,7 +53,7 @@ useTranslation().addTranslationsByKey("worksite-admin");
 
 ```javascript
 "scripts": {
-    "generate": "node ./node_modules/@deegital/vue-3-trustup-io-translations/bin/translationSave.cjs && nuxt generate",
+    "generate": "translationIo generate && nuxt generate",
   },
 ```
 
