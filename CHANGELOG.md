@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.25
+
+### Patch Changes
+
+- 8a30276: fix read json file
+
 ## 0.0.24
 
 ### Patch Changes
