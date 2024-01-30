@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.26
+
+### Patch Changes
+
+- a539027: prettier
+
 ## 0.0.25
 
 ### Patch Changes
