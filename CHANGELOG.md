@@ -1,5 +1,12 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.24
+
+### Patch Changes
+
+- 9efd419: Missing shebang for node bin script.
+- 673c058: Spliting translation CLI to dedicated actions.
+
 ## 0.0.23
 
 ### Patch Changes
