@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.22
+
+### Patch Changes
+
+- a8590ce: switch to cjs
+
 ## 0.0.21
 
 ### Patch Changes
