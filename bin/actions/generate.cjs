@@ -1,20 +1,9 @@
-#!/usr/bin/env node
-
 const { useCurrentPath, useSentence } = require("@henrotaym/scaffolding-utils");
 const fetch = require("node-fetch");
 const { outputJson } = require("fs-extra");
-require("dotenv").config();
+const { trying } = require("../helpers/index.cjs");
 
-async function trying(promise) {
-  try {
-    const response = await promise;
-    return [response, undefined];
-  } catch (error) {
-    return [undefined, error];
-  }
-}
-
-async function fetchAndSaveTranslationsFile() {
+async function generate() {
   const appName = process.env.NUXT_PUBLIC_APP_NAME;
   const filePath = useCurrentPath("public", `${appName}.json`);
   
@@ -30,4 +19,4 @@ async function fetchAndSaveTranslationsFile() {
   useSentence(`Successfully wrote [${appName}] translations file to [${filePath}].`);
 }
 
-fetchAndSaveTranslationsFile();
+module.exports = generate;
