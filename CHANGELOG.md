@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.27
+
+### Patch Changes
+
+- 212b2a3: Adding rnd to prevent cache
+
 ## 0.0.26
 
 ### Patch Changes
