@@ -11,7 +11,11 @@ class Translation {
   public async index(appName: string) {
     const request = new Request()
       .setVerb("GET")
-      .setUrl(`storage/translations/${appName}.json`);
+      .setUrl(
+        `storage/translations/${appName}.json?rnd=${(
+          Math.random() * 100
+        ).toFixed(0)}`
+      );
     const response = await this.client.try(request);
 
     if (response.failed()) {
