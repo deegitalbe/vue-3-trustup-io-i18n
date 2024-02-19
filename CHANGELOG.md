@@ -1,5 +1,11 @@
 # @deegital/vue-3-trustup-io-translations
 
+## 0.0.28
+
+### Patch Changes
+
+- 5e476eb: Load translation file in local first then load api
+
 ## 0.0.27
 
 ### Patch Changes
