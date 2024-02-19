@@ -18,17 +18,13 @@ class Translation {
       );
     const response = await this.client.try(request);
 
-    if (response.failed()) {
-      return this.readJsonFile(appName)
-        .then((jsonData) => {
-          return jsonData;
-        })
-        .catch((error) => {
-          return;
-        });
-    }
-
-    return response.get();
+    return this.readJsonFile(appName)
+      .then((jsonData) => {
+        return jsonData;
+      })
+      .catch((error) => {
+        return response.get();
+      });
   }
 
   private async readJsonFile(appName: string) {
@@ -45,6 +41,7 @@ class Translation {
       })
       .catch((error) => {
         console.error("Erreur lors de la récupération du fichier JSON:", error);
+        throw error;
       });
 
     return jsonData;
